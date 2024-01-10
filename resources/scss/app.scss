@@ -1,0 +1,55 @@
+@import '~bootstrap/scss/bootstrap' ;
+
+body {
+    background-color: black;
+}
+
+a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+
+.logo {
+    width: 80px; 
+
+    img {
+        max-width: 100%; 
+        padding: 10px; 
+    }
+}
+
+.logo-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px; 
+
+    p{
+        margin: 0; 
+        color: #31D2F2;
+    }
+}
+
+.info-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0; 
+    background: linear-gradient(#31D2F2, grey);
+        p {
+            margin: 0; 
+        }
+}
+
+.img-table {
+    width: 100px;
+    max-width: 100%; 
+}
+
+.cell-center {
+    height: 100%; 
+    display: flex ; 
+    align-items: center;
+}
+
