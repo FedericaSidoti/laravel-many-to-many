@@ -40,10 +40,15 @@ class ProjectController extends Controller
             'title' => 'required|max:255|',
             'thumb' => 'required|url',
             'description' => 'required',
-            'type_id' => 'nullable|exists:types,id'
+            'type_id' => 'nullable|exists:types,id',
+            'technology_id' => 'nullable|exists:technologies,id'
         ]);
 
         $newProject = Project::create($data);
+
+        if($request->has('techs')) {
+            $newProject->technologies()->attach($data['techs']);
+        };
 
         return redirect()->route('admin.projects.index', $newProject);
     }
@@ -52,8 +57,9 @@ class ProjectController extends Controller
 
     {
         $types = Type::all();
+        $technologies = Technology::all();
 
-        return view('admin.projects.edit', compact('project', 'types'));
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
 
     public function update(Request $request, Project $project)
@@ -64,10 +70,17 @@ class ProjectController extends Controller
             'title' => 'required|max:255|',
             'thumb' => 'required|url',
             'description' => 'required',
-            'type_id' => 'nullable|exists:types,id'
+            'type_id' => 'nullable|exists:types,id',
+            'technology_id' => 'nullable|exists:technologies,id'
         ]);
 
         $project->update($data);
+
+        if($request->has('techs')) {
+            $project->technologies()->sync($data['techs']);
+        } else {
+            $project->technologies()->detach();
+        }
 
         return redirect()->route('admin.projects.show', $project->id);
     }

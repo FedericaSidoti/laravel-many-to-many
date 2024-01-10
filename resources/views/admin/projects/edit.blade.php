@@ -21,6 +21,18 @@
                 <textarea class="form-control" name="description" id="description" rows="4" placeholder="Descrizione del progetto">{{old('description', $project->description)}}</textarea>
             </div>
 
+            <p class="text-light">Seleziona uno o più tag</p>
+            <div class="d-flex flex-wrap text-light mb-3">
+            @foreach ($technologies as $tech)
+                <div class="form-check me-3">
+                    <label class="form-check-label" for="tech-{{$tech->id}}">
+                        {{$tech->name}}
+                    </label>
+                    <input name="techs[]" class="form-check-input" type="checkbox" value="{{$tech->id}}" id="tech-{{$tech->id}}" @checked(in_array($tech->id, old('techs', $project->technologies->pluck('id')->all())))>
+                </div>    
+            @endforeach
+            </div>
+
             <select name="type_id" class="form-control" id="type_id">
                 <option>Seleziona una categoria</option>
                 @foreach($types as $type)
