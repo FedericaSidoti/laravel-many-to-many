@@ -17,9 +17,21 @@
                 <label for="description" class="form-label">Descrizione</label>
                 <textarea class="form-control" name="description" id="description" rows="4" placeholder="Descrizione del progetto">{{old('description')}}</textarea>
             </div>
+
+            <p class="text-light">Seleziona uno o più tag</p>
+            <div class="d-flex flex-wrap text-light mb-3">
+            @foreach ($technologies as $tech)
+                <div class="form-check me-3">
+                    <label class="form-check-label" for="tech-{{$tech->id}}">
+                        {{$tech->name}}
+                    </label>
+                    <input name="techs[]" class="form-check-input" type="checkbox" value="{{$tech->id}}" id="tech-{{$tech->id}}" @checked(in_array($tech->id, old('techs', [])))>
+                </div>    
+            @endforeach
+            </div>
             
 
-            <select name="type_id" class="form-control" id="type_id">
+            <select name="type_id" class="form-control mb-3" id="type_id">
                 <option>Seleziona una categoria</option>
                 @foreach($types as $type)
                     <option @selected( old('type_id') == $type->id ) value="{{ $type->id }}">{{ $type->name }}</option>
