@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Project;
+use App\Models\Technology;
 use App\Models\Type;
 
 class ProjectSeeder extends Seeder
@@ -37,14 +38,21 @@ class ProjectSeeder extends Seeder
         $types = Type::all(); 
         $ids = $types->pluck('id');
 
+        $technologies= Technology::all();
+        $techIds = $technologies->pluck('id');
+
         foreach($projects as $project){
             $newProject = new Project(); 
             $newProject->title = $project['title'];
             $newProject->thumb = $project['thumb'];
             $newProject->description = $project['description'];
             $newProject->type_id= $ids->random();
-
+            
             $newProject->save();
+
+            $newProject->technologies()->attach(
+                $techIds->random(rand(1, 10))->all()
+            );
 
         }    
     }
