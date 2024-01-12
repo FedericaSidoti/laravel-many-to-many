@@ -33,6 +33,12 @@
                             </button>
                         </div>
 
+                        <div class="col-3 d-flex p-1">
+                            <button class=" btn btn-info">
+                                <h2> <a href="{{route('admin.types.index')}}">Accedi ai Tipi</a></h2>
+                            </button>
+                        </div>
+
                     </div>
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
