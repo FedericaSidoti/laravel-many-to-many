@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Technology;
-use App\Http\Requests\StoreTechnologyRequest;
-use App\Http\Requests\UpdateTechnologyRequest;
+use App\Http\Controllers\Controller;
+use App\Models\Type;
+use App\Http\Requests\StoreTypeRequest;
+use App\Http\Requests\UpdateTypeRequest;
 
-class TechnologyController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +28,7 @@ class TechnologyController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTechnologyRequest $request)
+    public function store(StoreTypeRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class TechnologyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Technology $technology)
+    public function show(Type $type)
     {
         //
     }
@@ -43,7 +44,7 @@ class TechnologyController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Technology $technology)
+    public function edit(Type $type)
     {
         //
     }
@@ -51,7 +52,7 @@ class TechnologyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTechnologyRequest $request, Technology $technology)
+    public function update(UpdateTypeRequest $request, Type $type)
     {
         //
     }
@@ -59,7 +60,7 @@ class TechnologyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Technology $technology)
+    public function destroy(Type $type)
     {
         //
     }
