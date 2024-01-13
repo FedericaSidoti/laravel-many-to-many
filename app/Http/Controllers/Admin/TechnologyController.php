@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Technology;
 use App\Http\Requests\StoreTechnologyRequest;
 use App\Http\Requests\UpdateTechnologyRequest;
+use Illuminate\Support\Str;
 
 class TechnologyController extends Controller
 {
@@ -14,7 +15,9 @@ class TechnologyController extends Controller
      */
     public function index()
     {
-        //
+        $technologies = Technology::all(); 
+
+        return view('admin.technologies.index', compact('technologies'));
     }
 
     /**
@@ -22,7 +25,7 @@ class TechnologyController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.technologies.create');
     }
 
     /**
@@ -30,7 +33,19 @@ class TechnologyController extends Controller
      */
     public function store(StoreTechnologyRequest $request)
     {
-        //
+        
+        $request->validate([
+            'name' => 'required|max:255|',
+        ]);
+
+        $data = $request->all();
+
+        $data['slug'] = Str::slug($data['name'], '-');
+
+
+        $newTechnology = Technology::create($data);
+
+        return redirect()->route('admin.technologies.index', $newTechnology);
     }
 
     /**
@@ -46,7 +61,7 @@ class TechnologyController extends Controller
      */
     public function edit(Technology $technology)
     {
-        //
+        return view('admin.technologies.edit', compact('technology'));
     }
 
     /**
@@ -54,7 +69,17 @@ class TechnologyController extends Controller
      */
     public function update(UpdateTechnologyRequest $request, Technology $technology)
     {
-        //
+        $data = $request->all();
+
+        $data['slug'] = Str::slug($data['name'], '-');
+
+        $request->validate([
+            'name' => 'required|max:255|',
+        ]);
+
+        $technology->update($data);
+
+        return redirect()->route('admin.technologies.index', $technology->id);
     }
 
     /**
@@ -62,6 +87,7 @@ class TechnologyController extends Controller
      */
     public function destroy(Technology $technology)
     {
-        //
+        $technology->delete();
+        return redirect()->route('admin.technologies.index');
     }
 }

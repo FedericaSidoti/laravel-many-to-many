@@ -15,15 +15,8 @@
                         <div class="col-3 d-flex p-1">
                             <button class=" btn btn-info">
                                 <a href={{route('admin.projects.index')}}>
-                                    <h5>Vai alla Lista </h5>
-                                    <h5>Modifica Progetto </h5>
-                                    <h5>Elimina Progetto </h5>
+                                    <h3>Accedi ai Progetti </h3>
                                 </a>
-                            </button>
-                        </div>
-                        <div class="col-3 d-flex p-1">
-                            <button class=" btn btn-info">
-                                <h2> <a href="{{route('admin.projects.create')}}">Crea Nuovo</a></h2>
                             </button>
                         </div>
 
@@ -36,6 +29,12 @@
                         <div class="col-3 d-flex p-1">
                             <button class=" btn btn-info">
                                 <h2> <a href="{{route('admin.types.index')}}">Accedi ai Tipi</a></h2>
+                            </button>
+                        </div>
+
+                        <div class="col-3 d-flex p-1">
+                            <button class=" btn btn-info">
+                                <h2> <a href="{{route('admin.technologies.index')}}">Accedi alle Tech</a></h2>
                             </button>
                         </div>
 
