@@ -14,15 +14,57 @@ class TechnologySeeder extends Seeder
      */
     public function run(): void
     {
-        $technologies = ['css', 'scss', 'js', 'vue', 'react', 'astro', 'laravel', 'node', 'angular', 'c++'];
+        $technologies = [
+            [
+                'name' =>'css',
+                'color' => '#abcdef'
+            ],
+            [
+                'name'=>'scss',
+                'color' => '#99cbff'
+            ],
+            [
+                'name'=>'js',
+                'color' => '#00A1F7'
+            ],
+            [
+                'name'=>'vue',
+                'color' => '#638EE7'
+            ],
+            [
+                'name'=>'react',
+                'color' => '#aaaaff'
+            ],
+            [
+                'name'=>'astro',
+                'color' => '#6BA9C3'
+            ],
+            [
+                'name'=>'laravel',
+                'color' => '#77A5CE'
+            ],
+            [
+                'name'=>'node',
+                'color' => '#BDD8E4'
+            ],
+            [
+                'name'=>'angular',
+                'color' => '#82ECF0'
+            ],
+            [
+                'name'=>'C++',
+                'color' => '#62C9EA'
+            ],
+        ];
 
-        foreach ($technologies as $technology_name) {
+        foreach ($technologies as $technology) {
 
-            $technology = new Technology();
-            $technology->name = $technology_name;
-            $technology->slug = Str::slug($technology_name);
+            $new_technology = new Technology();
+            $new_technology->name = $technology['name'];
+            $new_technology->color = $technology['color'];
+            $new_technology->slug = Str::slug($technology['name']);
 
-            $technology->save();
+            $new_technology->save();
         }
     }
 }
