@@ -71,7 +71,7 @@
                         <p class="h-100 d-flex align-items-center py-4">{{$project->id}}</p>
                     </th>
                     <td>
-                        <img class="img-table" src="{{$project->thumb}}">
+                        <img class="img-table" src="{{asset($project->thumb)}}">
                     </td>
                     <td>
                         <h2 class="py-4">{{$project->title}}</h2>
