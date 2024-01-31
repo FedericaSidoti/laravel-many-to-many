@@ -35,22 +35,22 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home Utente</a>
-                    </li>
-
+                <ul class="navbar-nav me-auto" >  
                     
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <div class="info-header">
-        <p>Stai visualizzando i progetti di : ***** </p>
-        <button>About Me</button>
+        <p>Stai accedendo al portfolio di: Federica Sidoti </p>
+        <button> <a href="http://localhost:5174/" target="_blank">About Me <a> </button>
     </div>
 
     <main class="bg-dark mb-5">

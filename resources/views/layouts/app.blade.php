@@ -23,7 +23,7 @@
     <div id="app">
 
 
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo">
@@ -43,13 +43,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/') }}">{{ __('Home Utente') }}</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="{{url('/admin/dashboard') }}">Dashboard</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('admin/projects')}}">Lista Progetti</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="http://localhost:5174/" target="_blank">Torna al Front End</a>
                         </li>
                     </ul>
 
@@ -89,12 +89,8 @@
                 </div>
             </div>
         </nav>
-        <div class="info-header">
-            <p>Stai visualizzando i progetti di : ***** </p>
-            <button>About Me</button>
-        </div>
 
-        <main class="bg-dark mb-5">
+        <main class="bg-light mb-5">
             @yield('content')
         </main>
     </div>
