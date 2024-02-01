@@ -38,7 +38,7 @@ class ProjectController extends Controller
 
         $request->validate([
             'title' => 'required|max:255|',
-            'thumb' => 'required|url',
+            'thumb' => 'required',
             'description' => 'required',
             'type_id' => 'nullable|exists:types,id',
             'technology_id' => 'nullable|exists:technologies,id'
@@ -68,7 +68,7 @@ class ProjectController extends Controller
 
         $request->validate([
             'title' => 'required|max:255|',
-            'thumb' => 'required|url',
+            'thumb' => 'required',
             'description' => 'required',
             'type_id' => 'nullable|exists:types,id',
             'technology_id' => 'nullable|exists:technologies,id'

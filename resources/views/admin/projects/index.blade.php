@@ -34,7 +34,6 @@
             <thead class="table-info">
                 <tr class="text-center">
                     <th scope="col">#</th>
-                    <th scope="col">IMG</th>
                     <th scope="col">Titolo</th>
                     <th scope="col">Descrizione</th>
                     <th scope="col">Azioni</th>
@@ -71,20 +70,26 @@
                         <p class="h-100 d-flex align-items-center py-4">{{$project->id}}</p>
                     </th>
                     <td>
-                        <img class="img-table" src="{{asset($project->thumb)}}">
-                    </td>
-                    <td>
-                        <h2 class="py-4">{{$project->title}}</h2>
-                    </td>
-                    <td>
-                        <p class="py-4">{{$project->description}}</p>
-                    </td>
-                    <td>
-                        <div class="d-flex justify-content-around py-4">
-                            <button class="btn btn-info"><a href="{{route('admin.projects.show', $project->id)}}">Dettagli</a></button>
-                            <button class="btn btn-info"><a href="{{route('admin.projects.edit', $project->id)}}">Modifica</a></button>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{$project->id}}">Elimina</button>
+                        <div class="table-item-wrap h-100">
+                            <h2 class=" text-center py-4">{{$project->title}}</h2>
                         </div>
+                        
+                    </td>
+                    <td>
+                        <div class="table-item-wrap h-100">
+                            <p class=" text-center py-4">{{$project->description}}</p>
+                        </div>
+                        
+                    </td>
+                    <td>
+                        <div class="table-item-wrap h-100">
+                            <div class="d-flex py-2">
+                                <button class="btn btn-info mx-2"><a href="{{route('admin.projects.show', $project->id)}}">Dettagli</a></button>
+                                <button class="btn btn-info mx-2"><a href="{{route('admin.projects.edit', $project->id)}}">Modifica</a></button>
+                                <button type="button" class="btn btn-danger mx-2" data-bs-toggle="modal" data-bs-target="#modal-{{$project->id}}">Elimina</button>
+                            </div>
+                        </div>
+                        
                     </td>
                     
                 </tr>
