@@ -17,7 +17,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-dark shadow-sm">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                 <div class="logo">
@@ -53,7 +53,7 @@
         <button> <a href="http://localhost:5174/" target="_blank">About Me <a> </button>
     </div>
 
-    <main class="bg-dark mb-5">
+    <main class="bg-light mb-5">
         @yield('content')
     </main>
 
